@@ -1,4 +1,4 @@
-# Contagem → 2027
+# Countdown → 2027
 
 Um contador visual de dias até o ano de 2027, desenvolvido em React.
 

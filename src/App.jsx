@@ -144,7 +144,7 @@ function App() {
 
   return (
     <div className="app">
-      <h1 className="title">Contagem → 2027</h1>
+      <h1 className="title">Countdown → 2027</h1>
       
       <div className="stats">
         <div className="stat-item">
