@@ -1,0 +1,177 @@
+.app {
+  background: white;
+  border-radius: 20px;
+  padding: 40px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+.title {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 40px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.days-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+  gap: 12px;
+  margin-top: 30px;
+}
+
+.day-box {
+  position: relative;
+  aspect-ratio: 1;
+  background: #f5f5f5;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 600;
+  color: #666;
+}
+
+.day-box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  border-color: #667eea;
+  z-index: 10;
+}
+
+.day-box.passed {
+  background: #fff5f5;
+  border-color: #ff6b6b;
+  position: relative;
+}
+
+.day-box.has-link {
+  border-color: #4CAF50;
+  background: #f0fff4;
+}
+
+.day-box.has-link::after {
+  content: '🔗';
+  position: absolute;
+  bottom: 3px;
+  right: 3px;
+  font-size: 0.9rem;
+}
+
+.day-box.marked::before {
+  content: '✕';
+  position: absolute;
+  top: 3px;
+  right: 3px;
+  color: #ff0000;
+  font-size: 1.4rem;
+  font-weight: bold;
+  line-height: 1;
+  text-shadow: 0 0 3px rgba(255, 0, 0, 0.5);
+}
+
+.day-box.marked {
+  background: #fff5f5;
+  border-color: #ff6b6b;
+}
+
+.day-number {
+  font-size: 1.1rem;
+  margin-bottom: 4px;
+}
+
+.day-date {
+  font-size: 0.7rem;
+  color: #999;
+  text-align: center;
+  padding: 0 4px;
+}
+
+.tooltip {
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #333;
+  color: white;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  white-space: nowrap;
+  margin-bottom: 8px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 1000;
+}
+
+.tooltip::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 6px solid transparent;
+  border-top-color: #333;
+}
+
+.day-box:hover .tooltip {
+  opacity: 1;
+}
+
+.stats {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+  padding: 20px;
+  background: #f8f9fa;
+  border-radius: 12px;
+}
+
+.stat-item {
+  text-align: center;
+}
+
+.stat-value {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #667eea;
+}
+
+.stat-label {
+  font-size: 0.9rem;
+  color: #666;
+  margin-top: 5px;
+}
+
+@media (max-width: 768px) {
+  .app {
+    padding: 20px;
+  }
+  
+  .title {
+    font-size: 1.8rem;
+  }
+  
+  .days-container {
+    grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
+    gap: 8px;
+  }
+  
+  .day-number {
+    font-size: 0.9rem;
+  }
+  
+  .day-date {
+    font-size: 0.6rem;
+  }
+}
+
